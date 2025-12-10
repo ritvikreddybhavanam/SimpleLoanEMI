@@ -16,7 +16,7 @@ class DisplayCurrency extends Error {
     Scanner sc = new Scanner(System.in);
 
     public void displayMenu() {
-        System.out.println("Choice          Currency");
+        System.out.println("Choice          Currency 💵");
         System.out.println("------------------------------------");
         System.out.println("1.              US Dollar ($)");
         System.out.println("2.              Japanese Yen (¥)");
