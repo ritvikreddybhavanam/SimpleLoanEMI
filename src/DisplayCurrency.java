@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 class DisplayCurrency extends Error {
@@ -13,21 +12,19 @@ class DisplayCurrency extends Error {
     double emi;
     String symbol;
 
-    Scanner sc = new Scanner(System.in);
-
     public void displayMenu() {
-        System.out.println("Choice          Currency 💵");
-        System.out.println("------------------------------------");
-        System.out.println("1.              US Dollar ($)");
-        System.out.println("2.              Japanese Yen (¥)");
-        System.out.println("3.              Indian Rupee (₹)");
-        System.out.println("4.              Exit");
-        System.out.println("------------------------------------");
+
+        System.out.println(CYAN + "\n========== Currency Menu ==========" + RESET);
+        System.out.println(YELLOW + "1. US Dollar ($)" + RESET);
+        System.out.println(YELLOW + "2. Japanese Yen (¥)" + RESET);
+        System.out.println(YELLOW + "3. Indian Rupee (₹)" + RESET);
+        System.out.println(YELLOW + "4. Exit" + RESET);
+        System.out.println(CYAN + "===================================" + RESET);
 
         choice = getSafeInt("Enter Choice: ");
 
         while (choice < 1 || choice > 4) {
-            System.out.println("Invalid menu choice! Please choose between 1–4.");
+            System.out.println(RED + "Invalid menu choice! Please choose between 1–4." + RESET);
             choice = getSafeInt("Enter Choice: ");
         }
     }
@@ -56,15 +53,17 @@ class DisplayCurrency extends Error {
     }
 
     public void displayAll() {
-        System.out.println("\n------ Loan EMI Details ------");
-        System.out.printf("Principal Amount     : %s%.2f\n", symbol, principal);
-        System.out.printf("Rate of Interest     : %.2f%%\n", rate);
-        System.out.printf("Time Period          : %d years\n", time);
-        System.out.printf("Simple Interest      : %s%.2f\n", symbol, simpleInterest);
-        System.out.printf("Total Amount Payable : %s%.2f\n", symbol, totalAmount);
-        System.out.printf("Months               : %d\n", months);
-        System.out.printf("Monthly EMI          : %s%.2f\n", symbol, emi);
-        System.out.println("--------------------------------");
+        System.out.println(CYAN + "\n=========== Loan EMI Details ===========" + RESET);
+
+        System.out.printf("Principal Amount     : %s" + BLUE + "%.2f" + RESET + "\n", symbol, principal);
+        System.out.printf("Rate of Interest     : " + BLUE + "%.2f%%" + RESET + "\n", rate);
+        System.out.printf("Time Period          : " + BLUE + "%d years" + RESET + "\n", time);
+        System.out.printf("Simple Interest      : %s" + BLUE + "%.2f" + RESET + "\n", symbol, simpleInterest);
+        System.out.printf("Total Amount Payable : %s" + BLUE + "%.2f" + RESET + "\n", symbol, totalAmount);
+        System.out.printf("Months               : " + BLUE + "%d" + RESET + "\n", months);
+        System.out.printf("Monthly EMI          : %s" + BLUE + "%.2f" + RESET + "\n", symbol, emi);
+
+        System.out.println(CYAN + "========================================" + RESET);
     }
 
     public void call() {
@@ -72,7 +71,7 @@ class DisplayCurrency extends Error {
             displayMenu();
 
             if (choice == 4) {
-                System.out.println("Thanks For Using Simple Loan EMI Calculator");
+                System.out.println(MAGENTA + "Thanks For Using Simple Loan EMI Calculator!" + RESET);
                 break;
             }
 
