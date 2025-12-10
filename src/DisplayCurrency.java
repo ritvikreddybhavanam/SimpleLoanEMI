@@ -68,7 +68,6 @@ class DisplayCurrency extends Error {
     }
 
     public void call() {
-
         while (true) {
             displayMenu();
 
